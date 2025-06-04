@@ -11,17 +11,8 @@ export class ModalNotification {
   id = input.required<number>();
   product = input.required<Product>();
   onAccept = output<string>();
-  // <HTMLDialogElement>
   alertDialog = viewChild<ElementRef<HTMLDialogElement>>('#alertDialog');
   showButton = viewChild<ElementRef<HTMLButtonElement>>('#showButton');
-
-  loadDom = effect(() => {
-    // const showButton = document.querySelector("#show-button")!;
-    // showButton.addEventListener("click", function () {
-    //   const alertDialog: HTMLDialogElement = document.querySelector("#alert-dialog")!;
-    //   alertDialog.showModal();
-    // });
-  });
 
   showModal() {
     console.log('showDialog');
