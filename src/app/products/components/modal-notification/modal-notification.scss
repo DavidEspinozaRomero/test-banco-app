@@ -1,0 +1,40 @@
+.alert-dialog {
+  opacity: 0;
+  transition:
+    display 1s allow-discrete,
+    overlay 1s allow-discrete,
+    translate 1s,
+    opacity 1s;
+  translate: 0 50%;
+  will-change: translate, opacity;
+}
+
+.alert-dialog[open] {
+  opacity: 1;
+  translate: 0;
+
+  @starting-style {
+    opacity: 0;
+    translate: 0 50%;
+  }
+}
+
+.alert-dialog::backdrop {
+  background: linear-gradient(#000d, #000a);
+  opacity: 1;
+  transition:
+    display 1s allow-discrete,
+    opacity 1s;
+
+  @starting-style {
+    opacity: 0
+  }
+}
+
+.alert-dialog:not([open])::backdrop {
+  opacity: 0;
+}
+
+.show-button {
+  border: none
+}
