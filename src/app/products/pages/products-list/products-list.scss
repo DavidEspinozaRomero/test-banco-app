@@ -123,9 +123,9 @@ select {
     padding: 0.5rem;
     cursor: pointer;
     
-    &:hover {
-      background-color: rgba(0, 0, 0, 0.05);
-      border-radius: 50%;
+    svg:hover {
+      outline: 1px solid rgb(0, 0, 0 / 0.2);
+      border-radius: 0.25rem;
     }
   }
 
