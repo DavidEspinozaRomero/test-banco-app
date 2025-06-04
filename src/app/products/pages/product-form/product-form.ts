@@ -1,5 +1,6 @@
 import { Product } from '@/products/interfaces/product.interface';
 import { ProductsService } from '@/products/services/products.services';
+import { ToastService } from '@/toast/services/toast-service';
 import { CommonModule } from '@angular/common';
 import { Component, effect, inject, input, signal } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, ValidationErrors, Validators } from '@angular/forms';
@@ -15,6 +16,7 @@ export default class ProductForm {
 
   fb = inject(FormBuilder);
   productService = inject(ProductsService);
+  toastService = inject(ToastService);
   id = input.required<string>();
 
   isDisabled = true
@@ -134,10 +136,16 @@ export default class ProductForm {
     }
 
     if (this.id()) {
-      this.productService.updateProduct(this.id(), product).subscribe((_) => this.productForm.reset());
+      this.productService.updateProduct(this.id(), product).subscribe((_) => {
+        this.productForm.reset()
+        this.toastService.showDialog('Success', 'Producto actualizado', 'success');
+      });
       return;
     }
 
-    this.productService.createProduct(product).subscribe((_) => this.productForm.reset());
+    this.productService.createProduct(product).subscribe((_) => {
+      this.productForm.reset()
+      this.toastService.showDialog('Success', 'Producto creado', 'success');
+    });
   }
 }

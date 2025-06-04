@@ -6,6 +6,7 @@ import { ProductsService } from '@/products/services/products.services';
 import { ProductFilterPipe } from '@/products/pipes/product-filter-pipe';
 import { Product } from '@/products/interfaces/product.interface';
 import { ModalNotification } from "../../components/modal-notification/modal-notification";
+import { ToastService } from '@/toast/services/toast-service';
 
 @Component({
   selector: 'app-products-list',
@@ -16,6 +17,7 @@ import { ModalNotification } from "../../components/modal-notification/modal-not
 export default class ProductsList {
 
   productsService = inject(ProductsService)
+  toastService = inject(ToastService)
   isLoading = signal(false)
   products = signal<Product[]>([])
   selectedProduct = signal<Product | null>(null)
@@ -33,6 +35,7 @@ export default class ProductsList {
     this.productsService.deleteProduct(id).subscribe(() => {
       this.products.update(products => products.filter(product => product.id !== id));
       this.closeModal();
+      this.toastService.showDialog('Success', 'Producto eliminado', 'success');
     });
   }
 
