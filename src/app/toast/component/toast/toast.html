@@ -1,0 +1,11 @@
+<dialog #toastDialog class="toast" [class.success]="type() === 'success'" [class.error]="type() === 'error'" role="alert">
+    <div class="toast-header">
+        <h4 class="toast-title">{{title()}}</h4>
+        <button type="button" class=" close" (click)="close()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="toast-body">
+        {{message()}}
+    </div>
+</dialog>
