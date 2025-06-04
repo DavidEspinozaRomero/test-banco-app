@@ -5,7 +5,6 @@ import { DatePipe } from '@angular/common';
 import { ProductsService } from '@/products/services/products.services';
 import { ProductFilterPipe } from '@/products/pipes/product-filter-pipe';
 import { Product } from '@/products/interfaces/product.interface';
-import { ModalNotification } from "../../components/modal-notification/modal-notification";
 import { ToastService } from '@/toast/services/toast-service';
 
 @Component({
