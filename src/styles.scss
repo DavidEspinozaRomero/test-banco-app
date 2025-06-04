@@ -1,1 +1,192 @@
 /* You can add global styles to this file, and also import other style files */
+@import 'styles/variables';
+@import 'styles/animations';
+@import 'styles/components';
+
+// Resets
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    height: 100vh;
+    height: 100dvh;
+    // font-size: 62.5%;
+}
+
+body {
+    margin: 0;
+    height: 100vh;
+    height: 100dvh;
+    background-color: $bg-soft-blue;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    text-wrap: balance;
+}
+
+p {
+    text-wrap: preaty;
+}
+
+video,
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+
+// Utils
+
+// colors
+.text-blue {
+    color: $text-blue;
+}
+
+.text-danger {
+    color: $text-danger;
+}
+
+.bg-soft-blue {
+    background-color: $bg-soft-blue;
+}
+
+.bg-light-blue {
+    background-color: $bg-soft-blue-light;
+}
+
+.bg-yellow {
+    background-color: $bg-yellow;
+}
+
+.bg-white {
+    background-color: white;
+}
+
+.text-center {
+    text-align: center;
+    margin-block: auto;
+}
+
+.text-bold {
+    font-weight: bold;
+}
+
+// borders
+.rounded-full {
+    border-radius: 50%;
+}
+
+.rounded {
+    border-radius: 0.5rem;
+}
+
+// display
+.w-full {
+    width: 100%;
+}
+
+.w-1\/2 {
+    width: 50%;
+}
+
+.h-full {
+    height: 100%;
+}
+
+.h-1\/2 {
+    height: 50%;
+}
+
+.h-36 {
+    height: 3rem; // 36px
+}
+
+.flex {
+    display: flex;
+}
+
+.grid {
+    display: grid;
+}
+
+.grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.col-span-2{
+    grid-column: span 2;
+}
+
+.gap-4 {
+    gap: 1rem;
+}
+
+.justify-between {
+    justify-content: space-between;
+}
+.justify-center {
+    justify-content: center;
+}
+.justify-evenly {
+    justify-content: space-evenly;
+}
+
+.sticky {
+    position: sticky;
+}
+
+.relative {
+    position: relative;
+}
+
+.absolute {
+    position: absolute;
+}
+
+.top-0 {
+    top: 0;
+}
+
+.bottom-0 {
+    bottom: 0;
+}
+
+// Spacing
+.p-4 {
+    padding: 1rem;
+}
+.mt-12{
+    margin-top: 3rem;
+}
+// shadows
+.shadow {
+    box-shadow: 0 0 1px 0 rgb(0, 0, 0, 0.3);
+}
+
+.shadow-sm {
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+}
+
+.shadow-md {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+// skeletons
+
+.skeleton-animation {
+    animation: skeletonFadeIn 2s ease-in-out infinite alternate;
+}
+
+.skeleton {
+    background-color: gray;
+    margin-bottom: .5rem;
+    border-radius: 0.5rem;
+}
