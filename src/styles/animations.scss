@@ -1,0 +1,20 @@
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes skeletonFadeIn {
+    0%{
+        opacity: .7;
+    }
+
+    50% {
+        opacity: .9;
+    }
+
+}

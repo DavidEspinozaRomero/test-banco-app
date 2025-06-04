@@ -1,0 +1,34 @@
+@import 'variables';
+
+// Components
+
+.btn {
+    --bg-color: #f4f6f9;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: bold;
+    // font-size: 1.2rem;
+    // cursor: pointer;
+    border:none;
+    transition: all 0.3s ease-in-out;
+    background-color: var(--bg-color);
+
+    &:hover,
+    &:focus {
+        outline: 1px solid gray;
+    }
+}
+
+.btn-yellow {
+    --bg-color: #f5df66;
+}
+
+input {
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-size: 1.2rem;
+}
+
+.is-invalid {
+    border: 2px solid red;
+}
