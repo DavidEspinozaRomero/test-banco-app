@@ -68,7 +68,7 @@ export default class ProductForm {
         this.isLoading.set(true);
         this.productService.getProduct(this.id()).subscribe({
           next: (product) => {
-            this.productForm.reset(product);
+            this.productForm.reset(product ?? {});
             this.isLoading.set(false);
           },
           error: () => {
