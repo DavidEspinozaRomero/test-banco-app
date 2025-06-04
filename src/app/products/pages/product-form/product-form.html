@@ -1,0 +1,103 @@
+<section class="form-wrapper shadow p-4 bg-white rounded">
+    <h1 class="text-center">Formulario de Registro</h1>
+    <hr>
+    <div class="">
+        @if(isLoading()) {
+        <div class="grid grid-cols-2 gap-4">
+            <div class="w-full skeleton skeleton-animation h-36"></div>
+            <div class="w-full skeleton skeleton-animation h-36"></div>
+            <div class="w-full skeleton skeleton-animation h-36"></div>
+            <div class="w-full skeleton skeleton-animation h-36"></div>
+            <div class="w-full skeleton skeleton-animation h-36"></div>
+            <div class="w-full skeleton skeleton-animation h-36"></div>
+            <div class="w-full skeleton skeleton-animation h-36"></div>
+            <div class="w-full skeleton skeleton-animation h-36"></div>
+        </div>
+        } @else {
+        <form class="product-form grid grid-cols-2 gap-4" [formGroup]="productForm" (ngSubmit)="onSubmit()">
+            <div>
+                <label>
+                    ID <br>
+                    <input type="text" formControlName="id" [class.is-invalid]="isValid(productForm, 'id')">
+                </label>
+                <br>
+                @if(isValid(productForm, 'id')) {
+                <small class="text-danger">
+                    {{getErrorMessage(productForm, 'id') }}
+                </small>
+                }
+            </div>
+            <div>
+                <label>
+                    Name <br>
+                    <input type="text" formControlName="name" [class.is-invalid]="isValid(productForm, 'name')">
+                </label>
+                <br>
+                @if(isValid(productForm, 'name')) {
+                <small class="text-danger">
+                    {{getErrorMessage(productForm, 'name') }}
+                </small>
+                }
+            </div>
+            <div>
+                <label>
+                    Descripción <br>
+                    <input type="text" formControlName="description"
+                        [class.is-invalid]="isValid(productForm, 'description')">
+                </label>
+                <br>
+                @if(isValid(productForm, 'description')) {
+                <small class="text-danger">
+                    {{getErrorMessage(productForm, 'description') }}
+                </small>
+                }
+            </div>
+            <div>
+                <label>
+                    Logo <br>
+                    <input type="text" formControlName="logo" [class.is-invalid]="isValid(productForm, 'logo')">
+                </label>
+                <br>
+                @if(isValid(productForm, 'logo')) {
+                <small class="text-danger">
+                    {{getErrorMessage(productForm, 'logo') }}
+                </small>
+                }
+            </div>
+            <div>
+                <label>
+                    Fecha de liberación <br>
+                    <input type="date" class="w-full" formControlName="dateRelease" [min]="minDate"
+                        [class.is-invalid]="isValid(productForm, 'dateRelease')">
+                </label>
+                <br>
+                @if(isValid(productForm, 'dateRelease')) {
+                <small class="text-danger">
+                    {{getErrorMessage(productForm, 'dateRelease') }}
+                </small>
+                }
+            </div>
+            <div>
+                <label>
+                    Fecha de Revición <br>
+                    <input type="date" class="w-full" formControlName="dateReview" readonly
+                        [class.is-invalid]="isValid(productForm, 'dateReview')" value="{{dateReview.value }}">
+                </label>
+                <br>
+                @if(isValid(productForm, 'dateReview')) {
+                <small class="text-danger">
+                    {{getErrorMessage(productForm, 'dateReview') }}
+                </small>
+                }
+            </div>
+
+            <div class="col-span-2 flex justify-center mt-12">
+                <button class="btn " (click)="productForm.reset()">Reset</button>
+                <div style="width:4rem"></div>
+                <button type="submit" class="btn btn-yellow" [disabled]="!productForm.valid">Agregar</button>
+            </div>
+        </form>
+        }
+    </div>
+
+</section>
